@@ -13,11 +13,11 @@ terraform {
     # This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example
     # manually, uncomment and fill in the config below.
 
-    # bucket         = "<YOUR S3 BUCKET>"
-    # key            = "<SOME PATH>/terraform.tfstate"
-    # region         = "us-east-2"
-    # dynamodb_table = "<YOUR DYNAMODB TABLE>"
-    # encrypt        = true
+    bucket         = "terraform-up-and-running-state-822924082960"
+    key            = "03-terraform-state/workspaces-example/one-instance/terraform.tfstate"
+    region         = "us-east-2"
+    dynamodb_table = "terraform-up-and-running-table-822924082960"
+    encrypt        = true
 
   }
 }
@@ -28,6 +28,7 @@ provider "aws" {
 
 resource "aws_instance" "example" {
   ami           = "ami-0fb653ca2d3203ac1"
+#  instance_type = "t2.micro"
 
   instance_type = terraform.workspace == "default" ? "t2.medium" : "t2.micro"
 

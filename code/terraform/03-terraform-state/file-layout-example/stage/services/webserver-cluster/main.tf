@@ -7,6 +7,14 @@ terraform {
       version = "~> 4.0"
     }
   }
+    backend "s3" {
+    # Replace this with your bucket name!
+    bucket         = "terraform-up-and-running-state-822924082960"
+    key            = "stage/services/webserver-cluster/terraform.tfstate"
+    region         = "us-east-2"
+    dynamodb_table = "terraform-up-and-running-table-822924082960"
+    encrypt        = true
+  }
 }
 
 provider "aws" {
