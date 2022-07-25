@@ -7,13 +7,14 @@ variable "names" {
   type        = list(string)
   default     = ["neo", "trinity", "morpheus"]
 }
-
+# allows you to insert for in lists of text
 output "for_directive" {
-  value = "%{ for name in var.names }${name}, %{ endfor }"
+  value = "hello I've put some txt in here %{ for name in var.names }${name}, %{ endfor }"
 }
 
+# as above but with an index before the name
 output "for_directive_index" {
-  value = "%{ for i, name in var.names }(${i}) ${name}, %{ endfor }"
+  value = "hello I've put some txt in her %{ for i, name in var.names }(${i}) ${name}, %{ endfor }"
 }
 
 output "for_directive_index_if" {

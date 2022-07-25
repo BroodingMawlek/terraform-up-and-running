@@ -1,5 +1,9 @@
 # Terraform: Up & Running Code
 
+Progress
+Chapter 5
+The simplest option is to use ternary syntax:
+
 This repo contains the code samples for the book *[Terraform: Up and Running](http://www.terraformupandrunning.com)*, 
 by [Yevgeniy Brikman](http://www.ybrikman.com).
 
