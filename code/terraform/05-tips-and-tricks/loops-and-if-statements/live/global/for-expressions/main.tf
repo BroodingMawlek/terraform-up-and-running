@@ -8,12 +8,13 @@ variable "names" {
   default     = ["neo", "trinity", "morpheus"]
 }
 
+# gives each item a name in this case name but could be anything
 output "upper_names" {
-  value = [for name in var.names : upper(name)]
+  value = [for any_description in var.names : upper(any_description)]
 }
 
 output "short_upper_names" {
-  value = [for name in var.names : upper(name) if length(name) < 5]
+  value = [for v in var.names : upper(v) if length(v) < 5]
 }
 
 variable "hero_thousand_faces" {
@@ -27,10 +28,10 @@ variable "hero_thousand_faces" {
 }
 
 output "bios" {
-  value = [for name, role in var.hero_thousand_faces : "${name} is the ${role}"]
+  value = [for key_value_banana, value_name_role in var.hero_thousand_faces : "${key_value_banana} is the ${value_name_role}"]
 }
 
 output "upper_roles" {
-  value = {for name, role in var.hero_thousand_faces : upper(name) => upper(role)}
+  value = {for k, v in var.hero_thousand_faces : upper(k) => upper(v)}
 }
 
