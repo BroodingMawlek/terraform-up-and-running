@@ -9,16 +9,19 @@ terraform {
   }
 
   backend "s3" {
+
     # This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example
     # manually, uncomment and fill in the config below.
 
-    # bucket         = "<YOUR S3 BUCKET>"
-    # key            = "<SOME PATH>/terraform.tfstate"
-    # region         = "us-east-2"
-    # dynamodb_table = "<YOUR DYNAMODB TABLE>"
-    # encrypt        = true
+    bucket         = "terraform-up-and-running-state-822924082960"
+    key            = "stage/data-stores/mysql/terraform.tfstate"
+    region         = "us-east-2"
+    dynamodb_table = "terraform-up-and-running-table-822924082960"
+    encrypt        = true
+
   }
 }
+
 
 provider "aws" {
   region = "us-east-2"
